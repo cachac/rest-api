@@ -10,7 +10,7 @@ env:
 
 jobs:
   build:
-    name: DAST Test
+    name: ZAP - DAST Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,20 +21,7 @@ jobs:
           npm install
           npm run dev&
 
-      - name: Run OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.5.0
+      - name: ZAP Scan
+        uses: zaproxy/action-api-scan@v0.7.0
         with:
-          target: http://localhost:8080
-          rules_file_name: .zap/rules.tsv
-          fail_action: true  # Fail the action if any vulnerability is found
-
-      - name: Generate ZAP report
-        uses: zaproxy/action-report@v0.5.0
-        with:
-          output_path: dast-report.html
-
-      - name: Upload ZAP report as an artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: dast-report
-          path: dast-report.html
+          target: 'http://localhost:3000/'
