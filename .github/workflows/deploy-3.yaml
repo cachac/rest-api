@@ -19,7 +19,7 @@ jobs:
       - name: run api
         run: |
           ls -la
-          cd rest-api
+     
           npm run dev
       
       - name: ZAP Scan
