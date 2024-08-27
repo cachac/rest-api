@@ -15,8 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Checkout code
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
         with:
-          fetch-depth: 0
-      
-      - name: Run AppScan CodeSweep
-        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2
+          languages: 'javascript'
+          
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
