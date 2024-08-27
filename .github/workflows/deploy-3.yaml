@@ -18,12 +18,12 @@ jobs:
       actions: read
       contents: read
 
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-        - language: javascript-typescript
-          build-mode: none
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     include:
+    #     - language: javascript-typescript
+    #       build-mode: none
 
     steps:
       - uses: actions/checkout@v3
@@ -33,9 +33,9 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: 'javascript'
-          build-mode: ${{ matrix.build-mode }}
+    
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:${{matrix.language}}"
+        # with:
+        #   category: "/language:${{matrix.language}}"
