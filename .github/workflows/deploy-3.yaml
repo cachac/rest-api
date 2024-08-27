@@ -19,4 +19,4 @@ jobs:
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.12.0
         with:
-          target: 'http://20.81.184.139:3000/'
+          target: 'http://20.81.184.139:3000/healthcheck'
