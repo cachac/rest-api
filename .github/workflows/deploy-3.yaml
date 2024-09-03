@@ -1,27 +1,4 @@
-name: deploy
 
-on:
-  push:
-    branches: ["mainx"]
-
-env:
-  REGISTRY: cachac
-  IMAGE_NAME: rest_api
-
-jobs:
-  build:
-    name: Build Image
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout code
-
-      - name: Build & Push
-        uses: docker/build-push-action@v3
-        with:
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-          build-args: |
-            APP_ENV=${{ secrets.APP_ENV }}
 
   loadTest:
     name: Load Testing
