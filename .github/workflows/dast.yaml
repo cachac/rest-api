@@ -34,7 +34,7 @@ jobs:
 
     permissions:
       id-token: write
-      issue: write
+      issues: write
       security-events: write
       packages: read
       actions: read
