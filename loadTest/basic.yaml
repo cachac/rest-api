@@ -6,19 +6,19 @@ config:
       p95: 200 # ms
       maxErrorRate: 2 # %
 
-phase:
-  - duration: 5 # sec
-    arrivalRate: 1 # 1req/s
-    name: "warming up"
+  phases:
+    - duration: 5 # sec
+      arrivalRate: 1 # 1req/s
+      name: "warming up"
 
-  - duration: 10
-    arrivalRate: 2
-    rampTo: 100
-    name: "ramping up"
+    - duration: 10
+      arrivalRate: 2
+      rampTo: 100
+      name: "ramping up"
 
-  - duration: 15
-    arrivalRate: 10
-    name: "Sustained load"
+    - duration: 15
+      arrivalRate: 10
+      name: "Sustained load"
 
 scenarios:
   - name: "Healtcheck"
