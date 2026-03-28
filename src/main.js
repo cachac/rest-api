@@ -12,10 +12,7 @@ const app = express()
 
 // middlewares
 app.use(express.json())
-let corsOptions = {
-  origin: 'trustedwebsite.com' // Compliant
-}
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(helmet())
 app.use(compression())
 
@@ -82,7 +79,7 @@ router.get('/random_crash', (req, res) => {
   res.send({ app: config.APP_NAME, env: config.NODE_ENV, port: config.NODE_PORT, version: config.APP_VERSION, sticky, random_crash: num })
 })
 
-// app.set('view engine','ejs'); 
+// app.set('view engine','ejs');
 
 router.get('/search', (req, res) => {
   const query = req.query.q;
